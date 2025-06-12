@@ -93,13 +93,17 @@ expense-tracker-app/
 ├── public/
 │   ├── expenses.html
 │   ├── index.html
-│   └── style.css
 ├── routes/
 │   ├── expenses.js
-│   ├── groups.js
+│   ├── settlements.js
 ├── db.js
-├── server.js
+├── expense_tracker.sql
+├── package-lock.json
 ├── package.json
+├── README.md
+├── script.js
+├── server.js
+├── style.css
 ```
 
 ---
