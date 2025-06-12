@@ -151,7 +151,7 @@ git checkout -b feature/view-expenses
 ---
 
 ## 🧑‍💻 Author
-Metin Berent Arisoy
+Metin Berent Arisoy,
 Bunyamin Yahya Saka  
 Computer Science Students @ WSB Merito Poznań  
 
