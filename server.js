@@ -9,7 +9,6 @@ app.use(express.json()); // to parse JSON body
 // Routes
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/expenses", require("./routes/expenses"));
-app.use("/api/groups", require("./routes/groups"));
 app.use("/api/settlements", require("./routes/settlements"));
 
 app.get("/", (req, res) => {
@@ -18,10 +17,6 @@ app.get("/", (req, res) => {
 
 app.get("/expenses", (req, res) => {
     res.sendFile(path.join(__dirname, "public/expenses.html"));
-});
-
-app.get("/groups", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/groups.html"));
 });
 
 app.listen(3000, () => {
