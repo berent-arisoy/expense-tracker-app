@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>All Expenses</title>
+      <style> body { font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5; } table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); } th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; } th { background-color: #4CAF50; color: white; } h1 { text-align: center; } </style>
+   </head>
+   <body>
+      <h1>Expense Records</h1>
+      <input type="text" id="filterPayer" placeholder="Filter by payer..." oninput="filterExpenses()" style="padding: 8px; width: 200px;" />
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Amount (PLN)</th>
+               <th>Description</th>
+               <th>Payer</th>
+               <th>Participants</th>
+               <th>Date</th>
+            </tr>
+         </thead>
+         <tbody id="expenseTableBody">
+            <!-- JS will insert rows here --> 
+         </tbody>
+      </table>
+      <script> let allExpenses = []; async function loadExpenses() { try { const res = await fetch('http://localhost:3000/api/expenses'); allExpenses = await res.json(); renderExpenses(allExpenses); } catch (err) { console.error("Error loading expenses:", err); } } function renderExpenses(data) { const tbody = document.getElementById("expenseTableBody"); tbody.innerHTML = ""; data.forEach((expense) => { const row = document.createElement("tr"); row.innerHTML = ` <td>${expense.id}</td> <td>${expense.amount}</td> <td>${expense.description}</td> <td>${expense.payer}</td> <td>${expense.participants}</td> <td>${new Date(expense.created_at).toLocaleString()}</td> `; tbody.appendChild(row); }); } function filterExpenses() { const query = document.getElementById("filterPayer").value.toLowerCase(); const filtered = allExpenses.filter(exp => exp.payer.toLowerCase().includes(query)); renderExpenses(filtered); } window.onload = loadExpenses; </script>
+   </body>
+</html>
