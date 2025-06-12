@@ -78,6 +78,10 @@ node server.js
 
 Backend runs on http://localhost:3000
 
+Pages: 
+http://localhost:3000
+http://localhost:3000/api/expenses
+
 ### 5. Open Frontend
 
 You can open the HTML files directly in the browser or serve them with a static server.
